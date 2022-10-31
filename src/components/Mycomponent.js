@@ -1,6 +1,6 @@
 import React from "react";
 import DisplayInfor from "./Disoplayinfor";
-import UserInfor from "./Userinfor";
+import AddUserInfor from "./AddUserinfor";
 class Mycomponent extends React.Component {
     state = {
         listUser: [
@@ -20,7 +20,12 @@ class Mycomponent extends React.Component {
     //         age: Math.floor((Math.random()*100)+1)
     //     })
     // }
-
+    handleAddNewUser = (userObj) => {
+        
+        this.setState({
+            listUser :[ userObj, ...this.state.listUser]
+        })
+    }
     // DRY:don't rêpat youseft
     // JSX
     render() {
@@ -28,9 +33,14 @@ class Mycomponent extends React.Component {
         return (
                 < div >
             
-                <UserInfor />
+                <AddUserInfor
+                    handleAddNewUser = {this.handleAddNewUser}
+                
+                />
                 <br/>  <br/>
-                <DisplayInfor listUser={this.state.listUser}></DisplayInfor>
+                <DisplayInfor listUser={this.state.listUser}
+              
+                ></DisplayInfor>
               
             </div>
         );
