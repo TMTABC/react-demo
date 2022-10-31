@@ -2,6 +2,13 @@ import React from "react";
 import DisplayInfor from "./Disoplayinfor";
 import UserInfor from "./Userinfor";
 class Mycomponent extends React.Component {
+    state = {
+        listUser: [
+            { id: 1, name: 'TMT', age: '123' },
+            { id: 2,name :'KBT' ,age :'456' },
+            { id: 3, name: 'alsknacs', age: '789' }
+        ]
+    }
   
     // --------   = (event) =>
     // handleClick (event) {
@@ -13,18 +20,18 @@ class Mycomponent extends React.Component {
     //         age: Math.floor((Math.random()*100)+1)
     //     })
     // }
- 
+
+    // DRY:don't rêpat youseft
     // JSX
     render() {
-        const myInfor = ['a','b','c']
+       
         return (
                 < div >
             
                 <UserInfor />
                 <br/>  <br/>
-                <DisplayInfor name='TMT' age={'123'} myInfor = {myInfor}></DisplayInfor>
-                <hr />
-                <DisplayInfor name ='KBT' age ='456'></DisplayInfor>
+                <DisplayInfor listUser={this.state.listUser}></DisplayInfor>
+              
             </div>
         );
     }

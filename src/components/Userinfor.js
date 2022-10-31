@@ -44,7 +44,7 @@ class UserInfor extends React.Component {
                 onChange={(event) => this.handOnchangeInput(event) }
             />
             <button>Submit</button>
-       
+        <br></br>
         {/* AGE */}
         
         <label>Your Age</label>
