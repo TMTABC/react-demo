@@ -4,9 +4,9 @@ import UserInfor from "./Userinfor";
 class Mycomponent extends React.Component {
     state = {
         listUser: [
-            { id: 1, name: 'TMT', age: '123' },
-            { id: 2,name :'KBT' ,age :'456' },
-            { id: 3, name: 'alsknacs', age: '789' }
+            { id: 1, name: 'TMT', age: '12' },
+            { id: 2,name :'KBT' ,age :'45' },
+            { id: 3, name: 'alsknacs', age: '18' }
         ]
     }
   
@@ -24,7 +24,7 @@ class Mycomponent extends React.Component {
     // DRY:don't rêpat youseft
     // JSX
     render() {
-       
+        
         return (
                 < div >
             
