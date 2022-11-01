@@ -1,5 +1,6 @@
 import React from 'react';
 import './DisplayInfor.scss';
+import logo from './../logo.svg';
 class DisplayInfor extends React.Component{
     state = {
         isShowisUser : true
@@ -18,25 +19,26 @@ class DisplayInfor extends React.Component{
         // console.table(listUser) giới thiệu
         return (
             <div className='display-infor-components'>
+                <img src = {logo}></img>
                 <div>
                     <span onClick={() => { this.handlesShowHide() }}>
                         {this.state.isShowisUser === true ? "Hide list users:" : "Show list users:"}
                     </span>
             </div>
                 {this.state.isShowisUser &&
-                    <div>
+                    <>
                         {listUser.map((user) => {
                    
                             return (
                                 <div key={user.id} className={+user.age > 18 ? "green" : "red"} >
-                                    <div style={{ color: 'blue', paddingTop:'50px'  }}>My name's {user.name}</div>
+                                    <div >My name's {user.name}</div>
                                     <div>My age's {user.age}</div>
                                     <hr />
                                 </div>
                             )
 
                         })}
-                    </div>
+                    </>
                 }
             </div>
         )
