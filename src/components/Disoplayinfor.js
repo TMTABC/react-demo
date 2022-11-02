@@ -1,16 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DisplayInfor.scss';
 import logo from './../logo.svg';
 // stateless vs statefull
 // class DisplayInfor extends React.Component{
-  
 
 //         // babel
 //         // this.state = {
 //         //     isShowisUser : true
 //         // }
-
-    
 
 //     // handlesShowHide = () => {
 //     //     this.setState({
@@ -56,7 +53,12 @@ import logo from './../logo.svg';
 // }
 const DisplayInfor = (props) => {
     const { listUser } = props;
-    
+    const [isShowisUser, setShowHideUser] = useState(true);
+
+    const handlesShowHide = () => {
+        setShowHideUser(!isShowisUser);
+    }
+
                 // console.log(this.props)
                
                 // console.log(listUser)
@@ -64,10 +66,17 @@ const DisplayInfor = (props) => {
                 // console.table(listUser) giới thiệu
                 return (
                     <div className='display-infor-components'>
+                        <div>
+                            <span onClick={() => handlesShowHide()} >
+
+                            {isShowisUser === true ? 'Hide list User' : 'Show list User'}
+                        
+                            </span>
+                        </div>
                         {/* <img src = {logo}></img> */}
                       
-                        {true &&
-                            <>
+                        { isShowisUser &&
+                            <div>
                                 {listUser.map((user) => {
                            
                                     return (
@@ -85,7 +94,7 @@ const DisplayInfor = (props) => {
                                     )
         
                                 })}
-                            </>
+                            </div>
                         }
                     </div>
                 )
