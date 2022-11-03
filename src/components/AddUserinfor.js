@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{user,useState} from 'react';
 
 // class AddUserInfor extends React.Component {
 //     state = {
@@ -72,6 +72,8 @@ const AddUserInfor = (props) => {
     //         age:''
     //     }
     // )
+    // const [, setUser] = useState('');
+    
     const [name, setName] = useState('TMT');
     const [age, setAge] = useState('14');
     const [address, setAddress] = useState('KBT');
@@ -80,14 +82,14 @@ const AddUserInfor = (props) => {
                 //  console.log(event.pageX)   
                 }
     const    handOnchangeInput = (event) => {
-                    setName({
-                        name: event.target.value
-                    })
+                    setName(
+                         event.target.value
+                    )
                 }
     const    handOnchangeAge = (event) => {
-                    setAge({
-                        age: event.target.value
-                    })
+                    setAge(
+                         event.target.value
+                    )
                 }
     const   handleOnSubmit = (event) => {
                     event.preventDefault();

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './DisplayInfor.scss';
 import logo from './../logo.svg';
 // stateless vs statefull
@@ -64,6 +64,14 @@ const DisplayInfor = (props) => {
                 // console.log(listUser)
         // ..........props => properties
                 // console.table(listUser) giới thiệu
+    console.log('>>> click me render')
+    useEffect(() => {
+        if (listUser.length === 0) {
+            alert('you delete all user')
+        }
+        console.log('>>> call me useEffect')
+
+    }, [listUser]);
                 return (
                     <div className='display-infor-components'>
                         <div>
@@ -77,16 +85,16 @@ const DisplayInfor = (props) => {
                       
                         { isShowisUser &&
                             <div>
-                                {listUser.map((user) => {
+                                {listUser.map((user, index) => {
                            
                                     return (
-                                        <div key={user.id} className={+user.age > 18 ? "green" : "red"} >
+                                        <div key={index} className={+user.age > 18 ? "green" : "red"} >
                                             <div>
                                             <div >My name's {user.name}</div>
                                             <div>My age's {user.age}</div>
                                             </div>
                                             <div>
-                                                <button onClick={() =>props.handleDeleteUser(user.id) }>Delete</button>
+                                                <button onClick={() => props.handleDeleteUser(user.id) }>Delete</button>
                                             </div>
         
                                             <hr />

@@ -63,7 +63,7 @@ import AddUserInfor from "./AddUserinfor";
 //     }
 // }
 const Mycomponent = (props) => {
-    const [listUser, setlistuse] = useState(
+    const [listUser, setlistuse] = useState (
         [
             
                 { id: 1, name: 'TMT', age: '12' },
@@ -82,7 +82,7 @@ const Mycomponent = (props) => {
         // let listUsersClone = [...this.state.listUser]
         let listUsersClone = listUser;
         listUsersClone = listUsersClone.filter(item => item.id !== userId);
-        setlistuse( listUsersClone )
+        setlistuse(listUsersClone);
         // this.setState ({
         //     listUser: listUsersClone
         // })
