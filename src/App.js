@@ -1,5 +1,6 @@
 
 import './App.scss';
+import Header from './components/Header/Header';
 
 const App = () => {
   
@@ -10,8 +11,7 @@ const App = () => {
     //   <Mycomponent></Mycomponent>
     // </div>
     <div className="app-container">
-      Hello world
-      <button>test</button>
+      <Header/>
      </div>
    );
 }
