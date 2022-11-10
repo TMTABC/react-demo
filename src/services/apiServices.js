@@ -20,4 +20,13 @@ const putUpdateUser = (id, username, role, image) => {
     data.append('userImage', image);
     return axios.put('https://localhost:3000', data);
 }
-export { postCreateNewUser, getAllUsers, putUpdateUser }
+const deleteUser = (userId) => {
+    return axios.delete('http://localhost:3000', { data: { id: userId } });
+}
+const getUserWithPaginate = (page, limit) => {
+    return axios.get(`http://localhost:3000/page=${page}&limit=${limit}`);
+}
+export {
+    postCreateNewUser, getAllUsers, putUpdateUser,
+    deleteUser, getUserWithPaginate
+}
