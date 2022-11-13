@@ -26,7 +26,16 @@ const deleteUser = (userId) => {
 const getUserWithPaginate = (page, limit) => {
     return axios.get(`http://localhost:3000/page=${page}&limit=${limit}`);
 }
+const postLogin = (userEmail, userPassword) => {
+    return axios.post(`http://localhost:3000/login`,
+        { email: userEmail, password: userPassword }
+    );
+    // const postLogin1 = (email, password) => {
+    //     return axios.post(`http://localhost:3000/login`,
+    //         {email,password}
+    //     );
+}
 export {
     postCreateNewUser, getAllUsers, putUpdateUser,
-    deleteUser, getUserWithPaginate
+    deleteUser, getUserWithPaginate, postLogin
 }

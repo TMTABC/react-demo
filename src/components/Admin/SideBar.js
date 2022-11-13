@@ -22,9 +22,11 @@ import { DiReact } from "react-icons/di";
 import { MdDashboard } from "react-icons/md";
 import './SideBar.scss';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const SideBar = (props) => {
     const { image, collapsed, toggled, handleToggleSidebar } = props;
+    const navigate = useNavigate()
     return (
         <>
             <ProSidebar
@@ -47,7 +49,11 @@ const SideBar = (props) => {
                             whiteSpace: 'nowrap',
                         }}
                     >
-                        <DiReact size={'3em'} color={'aqua'}></DiReact>
+                        <DiReact
+                            cursor={"pointer"}
+                            onClick={() => { navigate("/") }}
+                            size={'3em'}
+                            color={'aqua'}></DiReact>
                         <span>KBT</span>
 
                     </div>
