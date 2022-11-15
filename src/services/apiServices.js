@@ -28,14 +28,24 @@ const getUserWithPaginate = (page, limit) => {
 }
 const postLogin = (userEmail, userPassword) => {
     return axios.post(`http://localhost:3000/login`,
-        { email: userEmail, password: userPassword }
+        {
+            email: userEmail,
+            password: userPassword,
+            delay: 5000
+        }
     );
     // const postLogin1 = (email, password) => {
     //     return axios.post(`http://localhost:3000/login`,
     //         {email,password}
     //     );
 }
+const postRegister = (email, password, username) => {
+    return axios.post(`http://localhost:3000/register`,
+        { email, password, username }
+    );
+}
+
 export {
     postCreateNewUser, getAllUsers, putUpdateUser,
-    deleteUser, getUserWithPaginate, postLogin
+    deleteUser, getUserWithPaginate, postLogin, postRegister
 }

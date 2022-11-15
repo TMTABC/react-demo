@@ -91,7 +91,7 @@ const SideBar = (props) => {
                     </Menu>
 
                 </SidebarContent>
-                <SidebarFooter style={{ textAlign: 'centẻ' }}>
+                <SidebarFooter style={{ textAlign: 'center' }}>
                     <div
                         className='sidebar-btn-wrapper'
                         style={{

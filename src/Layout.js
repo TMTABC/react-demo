@@ -11,6 +11,7 @@ import ManageUser from './components/Admin/Content/ManageUser';
 import DashBoard from './components/Admin/Content/DashBoard';
 import Login from './components/Auth/Login';
 import { ToastContainer, toast } from 'react-toastify';
+import Register from "./components/Auth/Register";
 const Layout = () => {
     return (
         <>
@@ -26,7 +27,10 @@ const Layout = () => {
                     <Route path='manage-users' element={<ManageUser />}></Route>
                 </Route>
                 <Route path='/login' element={<Login />}></Route>
+
+                <Route path='/register' element={<Register />}></Route>
             </Routes>
+
             <ToastContainer
                 position="top-center"
                 autoClose={5000}

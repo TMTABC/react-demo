@@ -3,22 +3,50 @@ import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { postLogin } from "../../services/apiServices"
 import { toast } from 'react-toastify';
+import { useDispatch } from "react-redux";
+import { doLogin } from "../../redux/action/userAction";
+import { ImSpinner3 } from "react-icons/im"
+
 const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState(false);
+    const validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
+
     const handleLogin = async () => {
         // validate
-
+        const isValiEmail = validateEmail(email);
+        if (!isValiEmail) {
+            toast.error('Invali Email')
+            return;
+            // toast.success('Invali Email') 
+            // toast.info('Invali Email')
+        }
+        if (!password) {
+            toast.error('Invali Password')
+            return;
+        }
+        setIsLoading(true);
         // submit apis
         let data = await postLogin(email, password);
         // if (data && +data.EC === 0) {
+        dispatch(doLogin(data))
+        setIsLoading(false);
         //     toast.success(data.EM);
         // navigate('/')
 
         // }
         // if (data && +data.EC !== 0) {
         //     toast.error(data.EM);
+        setIsLoading(false)
 
         // }
     }
@@ -27,7 +55,9 @@ const Login = (props) => {
         <div className="login-container ">
             <div className="header">
                 <span>Don't have an account yet?</span>
-                <button>Sign up</button>
+                <button
+                    onClick={() => { navigate("/register") }}
+                >Sign up</button>
                 {/* <input>Need help?</input> */}
             </div>
             <div className="title col-4 mx-auto">
@@ -40,7 +70,7 @@ const Login = (props) => {
                 <div className="form-groud">
                     <label>Email</label>
                     <input
-                        title="Email"
+                        type={"email"}
                         className="form-control"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
@@ -49,7 +79,7 @@ const Login = (props) => {
                 <div className="form-groud">
                     <label>Password</label>
                     <input
-                        title="Password"
+                        type={"password"}
                         className="form-control"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
@@ -60,7 +90,11 @@ const Login = (props) => {
                     <button
                         className="btn-submit"
                         onClick={() => handleLogin()}
-                    >Login to KBT</button>
+                        disabled={isLoading}
+                    >
+                        {isLoading === true && <ImSpinner3 className="loader-icon"></ImSpinner3>}
+                        <span>Login to KBT</span>
+                    </button>
 
                 </div>
                 <div

@@ -25,14 +25,16 @@ const ManageUser = (props) => {
         {
             "id": 17,
             "username": "KBT",
-            "email": "áasads@gmail.com",
+            "password": "1811",
+            "email": "test@gmail.com",
             "role": "User",
             "image": 'bg2.jpg'
         },
         {
             "id": 18,
             "username": "TMT",
-            "email": "áa1sads@gmail.com",
+            "password": "2205",
+            "email": "test2@gmail.com",
             "role": "User"
         }
     ]);
