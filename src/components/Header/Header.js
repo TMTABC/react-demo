@@ -24,7 +24,7 @@ const Header = () => {
             <Nav.Link href="/addmins">Admin</Nav.Link>            */}
           </Nav>
           <Nav>
-            {isAuthenticated === false ?
+            {isAuthenticated === true ?
               <>
                 <button className='btn-login' onClick={() => navigate('/login')}>Log in</button>
                 <button className='btn-signup' onClick={() => navigate('/register')}>Sign up</button>
